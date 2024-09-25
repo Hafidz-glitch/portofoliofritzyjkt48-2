@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fritzy JKT48 - Pesulap Futuristik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --bg-color: #0a0a2a;
+            --text-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .futuristic-bg {
+            background: linear-gradient(45deg, var(--bg-color), #1a1a4a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .magician {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 300px;
+        }
+
+        .hat {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 80px;
+            background-color: var(--secondary-color);
+            clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+        }
+
+        .face {
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 100px;
+            background-color: #ffd1dc;
+            clip-path: ellipse(50% 50% at 50% 50%);
+        }
+
+        .eyes {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .eye {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            animation: blink 3s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {height: 20px;}
+            95% {height: 2px;}
+        }
+
+        .mouth {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 10px;
+            background-color: var(--secondary-color);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .body {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 150px;
+            background-color: var(--primary-color);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+        }
+
+        .wand {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 100px;
+            height: 5px;
+            background-color: var(--text-color);
+            transform: rotate(-45deg);
+        }
+
+        .wand::before {
+            content: '✨';
+            position: absolute;
+            right: -20px;
+            font-size: 24px;
+            animation: sparkle 1s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {opacity: 1;}
+            50% {opacity: 0.5;}
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary-color);
+        }
+
+        .magic-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid var(--primary-color);
+        }
+
+        .magic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .magic-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .gallery-img {
+            border-radius: 15px;
+            transition: transform 0.3s;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-magic {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 2rem;
+            border-radius: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-magic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--text-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-icons {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        #star-field {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="star-field"></canvas>
+
+    <header class="header futuristic-bg">
+        <div class="container">
+            <h1 class="mb-3">Fritzy JKT48</h1>
+            <p class="lead mb-5">Pesulap Futuristik dari Masa Depan</p>
+            <a href="#about" class="btn btn-magic">Jelajahi Keajaiban</a>
+
+            <div class="magician">
+                <div class="hat"></div>
+                <div class="face">
+                    <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="mouth"></div>
+                </div>
+                <div class="body">
+                    <div class="wand"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section id="about" class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="https://i.pinimg.com/originals/60/ae/fd/60aefd29dfec0502d661ea3ce57dd054.png" alt="Foto Fritzy" class="img-fluid rounded-circle">
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-title">Tentang Saya</h2>
+                <p>Selamat datang di dunia keajaiban magic Saya Fritzy, anggota JKT48 dan pesulap muda dari generasi 12. Dengan perpaduan unik antara teknologi canggih dan ilusi, saya menciptakan pertunjukan yang melampaui batas imajinasi.</p>
+                <p>Sihir digital dan musik adalah passion saya. Melalui keduanya, saya berusaha untuk membawa pengalaman yang menggemparkan dan tak terlupakan kepada setiap penonton.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-5">
+            <h2 class="section-title">Keahlian Magis</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="magic-card text-center">
+                        <i class="fas fa-vr-cardboard magic-icon"></i>
+                        <h3>Sulap Virtual Reality</h3>
+                        <p>Menciptakan ilusi yang menakjubkan dalam dunia virtual interaktif.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="magic-card text-center">
+                        <i class="fas fa-brain magic-icon"></i>
+                        <h3>Telekinesis Digital</h3>
+                        <p>Mengendalikan objek digital dengan kekuatan pikiran dan teknologi canggih.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="magic-card text-center">
+                        <i class="fas fa-hologram magic-icon"></i>
+                        <h3>Ilusi Holografik</h3>
+                        <p>Pertunjukan spektakuler dengan proyeksi hologram 3D yang memukau.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="mb-5">
+            <h2 class="section-title">Galeri Keajaiban</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwlgF1ORZErMt56r1lPa2rh7CJm-7zKDeH9A&s" alt="Pertunjukan VR" class="img-fluid gallery-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/10/05/2632195314.jpg" alt="Telekinesis Digital" class="img-fluid gallery-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://asset-2.tstatic.net/tribunkaltimwiki/foto/bank/images/Fritzy-Rosmerian-Juara-1-FESTA-Magic-Competition-2022.jpg" alt="Hologram Show" class="img-fluid gallery-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://thumb.viva.co.id/media/frontend/thumbs3/2024/01/17/65a71be86ad2a-fritzy-rosmerian_1265_711.jpg" alt="Hologram Show" class="img-fluid gallery-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://t-2.tstatic.net/tribunnewswiki/foto/bank/images/Fritzy-Rosmerian-222.jpg" alt="Hologram Show" class="img-fluid gallery-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://image.popmama.com/content-images/community/20231121/community-f71a628be508a4280b6e4fbe823397f6.jpg?1726745944" alt="Hologram Show" class="img-fluid gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Nama Anda" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email Anda" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="4" placeholder="Pesan Anda" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-magic">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Fritzy JKT48. Semua Hak Cipta Dilindungi.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Star Field Animation
+        const canvas = document.getElementById('star-field');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        const starCount = 200;
+
+        for (let i = 0; i < starCount; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 1.5,
+                speed: Math.random() * 0.5
+            });
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#ffffff';
+
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                star.y += star.speed;
+
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
